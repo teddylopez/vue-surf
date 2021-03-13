@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Assateague Island, MD",
+    "id": "5842041f4e65fad6a7708a1a",
+    "coords": { "lat": 38.0933, "lng": -75.2071 },
+    "info": "Assateague Island is a 37-mile (60 km) long barrier island located off the eastern coast of the Delmarva Peninsula facing the Atlantic Ocean. The northern two-thirds of the island is in Maryland while the southern third is in Virginia.",
+    "map": "assateague-map.png"
+  },
+  {
+    "name": "Rockaway Beach, NY",
+    "id": "584204214e65fad6a7709d0a",
+    "coords": { "lat": 40.586712, "lng": -73.811474 },
+    "info": "Rockaway Beach is a neighborhood on the Rockaway Peninsula in the New York City borough of Queens. The neighborhood is bounded by Arverne to the east and Rockaway Park to the west. It is named for the Rockaway Beach and Boardwalk, which is the largest urban beach in the United States, stretching from Beach 3rd to Beach 153rd Streets on the Atlantic Ocean.",
+    "map": "rockaway-map.png"
+  },
+  {
+    "name": "Outer Banks, NC",
+    "id": "584204214e65fad6a7709d1b",
+    "coords": { "lat": 35.5585, "lng": -75.4665 },
+    "info": "The Outer Banks are a 200-mile (320 km) string of barrier islands and spits off the coast of North Carolina and southeastern Virginia, on the east coast of the United States. They line most of the North Carolina coastline, separating Currituck Sound, Albemarle Sound, and Pamlico Sound from the Atlantic Ocean.",
+    "map": "obx-map.png"
+  }
+]
