@@ -178,21 +178,19 @@ export default {
         return res.json();
       });
 
-      (this.date = formatDate(
-        data.report.timestamp,
-        (this.spot = data.spot),
-        (this.forecast = data.forecast),
-        (this.conditions = formatConditions(data.forecast.conditions.value)),
-        (this.tides = data.forecast.tide),
-        (this.swell = this.primarySwell(data.forecast.swells)),
-        (this.waterTemp = data.forecast.waterTemp),
-        (this.waveHeight = data.forecast.waveHeight),
-        (this.weather = data.forecast.weather),
-        (this.wind = data.forecast.wind),
-        (this.report = data.report),
-        (this.weatherUrl = `https://wa.cdn-surfline.com/quiver/0.6.2/weathericons/${data.forecast.weather.condition}.svg`)
-      )),
-        (this.spotDetails = this.getSpotDetails(spotId));
+      this.date = formatDate(data.report.timestamp),
+      this.spot = data.spot,
+      this.forecast = data.forecast,
+      this.conditions = formatConditions(data.forecast.conditions.value),
+      this.tides = data.forecast.tide,
+      this.swell = this.primarySwell(data.forecast.swells),
+      this.waterTemp = data.forecast.waterTemp,
+      this.waveHeight = data.forecast.waveHeight,
+      this.weather = data.forecast.weather,
+      this.wind = data.forecast.wind,
+      this.report = data.report,
+      this.weatherUrl = `https://wa.cdn-surfline.com/quiver/0.6.2/weathericons/${data.forecast.weather.condition}.svg`,
+      this.spotDetails = this.getSpotDetails(spotId);
     },
     async fetchUpcomingSurf(spotId) {
       const targetUrl = `${UPCOMING_SURF_URL}${spotId}&days=6`;
