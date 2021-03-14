@@ -7,12 +7,12 @@
         <h1>
           <div class="date-day">
             {{ date }} <br />
-            <span class="section-title" id="realtime">{{currentTime}}</span>
+            <span class="section-title" id="realtime">{{ currentTime }}</span>
           </div>
         </h1>
       </div>
       <div class="location-info">
-        <strong>{{ spotDetails.name }}:</strong> <br>
+        <strong>{{ spotDetails.name }}:</strong> <br />
         {{ spotDetails.info }}
       </div>
       <div class="date">
@@ -59,10 +59,7 @@
           </div>
           <div class="water-wrapper">
             <h4>Water Temp</h4>
-            <img class="water-icon"
-              :src="waterIcon"
-              alt="Water Temp"
-            />
+            <img class="water-icon" :src="waterIcon" alt="Water Temp" />
             <span class="section-title">
               {{ forecast.waterTemp.min }}° - {{ forecast.waterTemp.max }}° f
             </span>
@@ -78,14 +75,24 @@
         </div>
       </div>
       <div class="wind-and-swell">
-        <div class="wind-circle" ref="windCircle" :style="{ transform: 'rotate('+ `${forecast.wind.direction}`+'deg)'}">
+        <span
+          class="wind-circle"
+          ref="windCircle"
+          :style="{
+            transform: 'rotate(' + `${forecast.wind.direction}` + 'deg)'
+          }"
+        >
           <div class="wind-degree" ref="windDegree">
             <div class="wind-arrow" ref="windArrow"></div>
           </div>
-        </div>
+        </span>
         <div
-          id="location-map" ref="locationMap"
-          :style="{backgroundImage: 'url(' + require(`../assets/maps/${spotDetails.map}`) + ')'}"
+          id="location-map"
+          ref="locationMap"
+          :style="{
+            backgroundImage:
+              'url(' + require(`../assets/maps/${spotDetails.map}`) + ')'
+          }"
         >
           <img
             src="../assets/maps/compass-overlay-black.svg"
@@ -94,11 +101,14 @@
             height="100%"
           />
         </div>
-        <div class="swell-circle" :style="{ transform: 'rotate('+ `${swell.direction}`+'deg)'}">
+        <span
+          class="swell-circle"
+          :style="{ transform: 'rotate(' + `${swell.direction}` + 'deg)' }"
+        >
           <div class="swell-degree">
             <div class="swell-arrow"></div>
           </div>
-        </div>
+        </span>
       </div>
       <div class="info">
         <div data-report-section v-html="report.body"></div>
@@ -126,7 +136,12 @@
 <script>
 import spotDetails from "../spotDetails.json";
 import UpcomingSurf from "./UpcomingSurf.vue";
-import { REPORT_URL, UPCOMING_SURF_URL, formatConditions, formatDate } from "../shared.js";
+import {
+  REPORT_URL,
+  UPCOMING_SURF_URL,
+  formatConditions,
+  formatDate
+} from "../shared.js";
 
 export default {
   name: "SurfReport",
@@ -152,7 +167,8 @@ export default {
       isAddClass: false,
       upcomingSurf: [],
       currentTime: "",
-      waterIcon: "https://wa.cdn-surfline.com/quiver/0.6.2/weathericons/WATER_ICON.svg",
+      waterIcon:
+        "https://wa.cdn-surfline.com/quiver/0.6.2/weathericons/WATER_ICON.svg"
     };
   },
   methods: {
@@ -162,36 +178,46 @@ export default {
         return res.json();
       });
 
-      this.date = formatDate(data.report.timestamp,
-      this.spot = data.spot,
-      this.forecast = data.forecast,
-      this.conditions = formatConditions(data.forecast.conditions.value),
-      this.tides = data.forecast.tide,
-      this.swell = this.primarySwell(data.forecast.swells),
-      this.waterTemp = data.forecast.waterTemp,
-      this.waveHeight = data.forecast.waveHeight,
-      this.weather = data.forecast.weather,
-      this.wind = data.forecast.wind,
-      this.report = data.report,
-      this.weatherUrl = `https://wa.cdn-surfline.com/quiver/0.6.2/weathericons/${data.forecast.weather.condition}.svg`),
-      this.spotDetails = this.getSpotDetails(spotId);
+      (this.date = formatDate(
+        data.report.timestamp,
+        (this.spot = data.spot),
+        (this.forecast = data.forecast),
+        (this.conditions = formatConditions(data.forecast.conditions.value)),
+        (this.tides = data.forecast.tide),
+        (this.swell = this.primarySwell(data.forecast.swells)),
+        (this.waterTemp = data.forecast.waterTemp),
+        (this.waveHeight = data.forecast.waveHeight),
+        (this.weather = data.forecast.weather),
+        (this.wind = data.forecast.wind),
+        (this.report = data.report),
+        (this.weatherUrl = `https://wa.cdn-surfline.com/quiver/0.6.2/weathericons/${data.forecast.weather.condition}.svg`)
+      )),
+        (this.spotDetails = this.getSpotDetails(spotId));
     },
     async fetchUpcomingSurf(spotId) {
       const targetUrl = `${UPCOMING_SURF_URL}${spotId}&days=6`;
-      const {data} = await fetch(`${targetUrl}`).then(res => res.json());
-      this.upcomingSurf = await data.conditions
+      const { data } = await fetch(`${targetUrl}`).then(res => res.json());
+      this.upcomingSurf = await data.conditions;
     },
     getSpotDetails(spotId) {
       return spotDetails.filter(spot => spot.id === spotId)[0];
     },
     getNow() {
       const today = new Date();
-      const time = ('0' + today.getHours()).slice(-2) + " : " + ('0' + today.getMinutes()).slice(-2) + " : " + ('0' + today.getSeconds()).slice(-2);
+      const time =
+        ("0" + today.getHours()).slice(-2) +
+        " : " +
+        ("0" + today.getMinutes()).slice(-2) +
+        " : " +
+        ("0" + today.getSeconds()).slice(-2);
       this.currentTime = time;
     },
     styleTime(timestamp) {
       const time = new Date(timestamp * 1000);
-      const formattedTime = ('0' + time.getHours()).slice(-2) + ":" + ('0' + time.getMinutes()).slice(-2);
+      const formattedTime =
+        ("0" + time.getHours()).slice(-2) +
+        ":" +
+        ("0" + time.getMinutes()).slice(-2);
       return formattedTime;
     },
     addClass() {
@@ -202,10 +228,10 @@ export default {
         height: -Infinity,
         direction: -Infinity,
         directionMin: -Infinity,
-        period: -Infinity,
+        period: -Infinity
       };
 
-      swells.forEach((el) => {
+      swells.forEach(el => {
         const { height, direction, directionMin, period } = el;
         if (height > res.height) {
           res.height = height;

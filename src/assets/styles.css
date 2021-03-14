@@ -198,11 +198,24 @@ a:hover {
 .swell-circle {
   position: absolute;
   z-index: 1;
-  left: 3%;
-  top: 5%;
-  width: 77%;
-  height: 90%;
+  left: 0%;
+  top: 0%;
+  width: 323px;
+  height: 323px;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 50%;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  .swell-circle,
+  .wind-circle {
+    min-width: 95%;
+    min-height: 95%;
+    left: 12px;
+    top: 3px;
+  }
 }
 
 .wind-degree,
