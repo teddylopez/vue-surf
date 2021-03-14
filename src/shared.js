@@ -1,5 +1,6 @@
-const REPORT_URL = "http://services.surfline.com/kbyg/spots/reports?spotId="
-const UPCOMING_SURF_URL = "http://services.surfline.com/kbyg/spots/forecasts/conditions?spotId="
+const REPORT_URL = "https://services.surfline.com/kbyg/spots/reports?spotId=";
+const UPCOMING_SURF_URL =
+  "https://services.surfline.com/kbyg/spots/forecasts/conditions?spotId=";
 
 function formatConditions(conditions) {
   return conditions.split("_").join(" ");

@@ -440,6 +440,7 @@ a:hover {
   }
 
   .arrow-label {
+    cursor: pointer;
     display: block;
     transform: rotate(0);
     transition: transform 300ms ease;
