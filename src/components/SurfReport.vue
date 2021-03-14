@@ -27,19 +27,18 @@
         </h4>
         <br />
         <div class="current-tide-wrapper">
-          Current Tide:
+          Current Tide ({{ styleTime(forecast.tide.current.timestamp) }} EST ):
           {{ forecast.tide.current.type }}
-          ({{ styleTime(forecast.tide.current.timestamp) }} EST )
           <br />
           Wave Height: {{ forecast.tide.current.height }} ft. <br />
         </div>
         <br />
         <div class="next-tide-wrapper">
-          Next Tide:
-          {{ forecast.tide.next.type }}({{
+          Next Tide ({{
             styleTime(forecast.tide.next.timestamp)
           }}
-          EST)
+          EST):
+          {{ forecast.tide.next.type }}
           <br />
           Wave Height:
           {{ forecast.tide.next.height }} ft.
