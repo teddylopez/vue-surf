@@ -51,7 +51,7 @@
             <h4>Air Temp</h4>
             <div class="air-info" style="display: flex; align-items: center;">
               <img data-weather alt="Weather" v-bind:src="weatherUrl" />
-              <span class="section-title"
+              <span class="section-title temp-and-speed"
                 >{{ forecast.weather.temperature }}° f</span
               >
             </div>
@@ -59,14 +59,14 @@
           <div class="water-wrapper">
             <h4>Water Temp</h4>
             <img class="water-icon" :src="waterIcon" alt="Water Temp" />
-            <span class="section-title">
+            <span class="section-title temp-and-speed">
               {{ forecast.waterTemp.min }}° - {{ forecast.waterTemp.max }}° f
             </span>
           </div>
 
           <div class="wind-wrapper">
             <h4>Wind Speed</h4>
-            <span class="section-title section-title-date" data-wind-speed>{{
+            <span class="section-title section-title-date temp-and-speed" data-wind-speed>{{
               forecast.wind.speed
             }}</span>
             kts

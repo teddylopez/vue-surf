@@ -216,6 +216,10 @@ a:hover {
     left: 12px;
     top: 3px;
   }
+
+  span.temp-and-speed {
+    font-size: 14px;
+  }
 }
 
 .wind-degree,
